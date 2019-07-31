@@ -1,31 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Graphviz } from "graphviz-react";
 import example from "./exampleData";
 import DenseAppBar from "./AppBar";
+import GraphVizer from "./GraphVizer";
 
 const App = () => {
   return (
     <div className="app-root">
       <DenseAppBar>JSP Exploreer</DenseAppBar>
-      <div className="canvas-frame">
-        <div
-          style={{
-            gridColumn: "1/2",
-            backgroundColor: "lightgrey",
-            width: "1400px",
-            height: "800px"
-          }}
-        >
-          <Graphviz
-            onClick={event => {
-              console.log(event.target.value);
-            }}
-            dot={example()}
-            options={{ fit: true, height: 800, width: 1400, zoom: true }}
-          />
-        </div>
-      </div>
+      <GraphVizer
+        dotgraph={example()}
+        settings={{ fit: true, height: 800, width: 1400, zoom: true }}
+      />
       <div className="footer"></div>
     </div>
   );
