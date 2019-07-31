@@ -1,0 +1,47 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.app-root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+polygon {
+  fill: lightgrey;
+}
+
+ellipse {
+  fill: white;
+}
+
+.footer {
+  background-color: rgb(70, 70, 70);
+  flex-grow: 20000;
+}
+
+.graphviz {
+  background-color: blue;
+}
+
+.canvas-frame {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  background-color: rgb(70, 70, 70);
+}
