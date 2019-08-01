@@ -1,149 +1,149 @@
-digraph {
-    0 [label="Node {\l    identity: Root,\l    entry_type: Root,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    1 [label="Node {\l    identity: Simple(\l        \"dd\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    2 [label="Node {\l    identity: Simple(\l        \"shows\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    3 [label="Node {\l    identity: RegEx {\l        name: \"show\",\l        pattern: Regexp(\l            ^[A-Z]+[A-Z0-9]*$,\l        ),\l        exclude: Some(\l            Regexp(\l                ^(REF|SHARED|OUTSOURCE|LOCATIONS|DAILIES)$,\l            ),\l        ),\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: Some(\l            Named(\l                \"jobsys\",\l            ),\l        ),\l        group: None,\l        perms: Some(\l            \"751\",\l        ),\l        varname: Some(\l            \"DD_SHOW\",\l        ),\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    4 [label="Node {\l    identity: Simple(\l        \"REF\",\l    ),\l    entry_type: Volume,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    5 [label="Node {\l    identity: Simple(\l        \"quicktimes\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: Some(\l            \"751\",\l        ),\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    6 [label="Node {\l    identity: RegEx {\l        name: \"num_n_under\",\l        pattern: Regexp(\l            ^[0-9_]+$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    7 [label="Node {\l    identity: Simple(\l        \"CLIENT_VAULT\",\l    ),\l    entry_type: Volume,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    8 [label="Node {\l    identity: RegEx {\l        name: \"clientvault_subdir\",\l        pattern: Regexp(\l            ^(incoming|outgoing)$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    9 [label="Node {\l    identity: RegEx {\l        name: \"clientvault_ssd\",\l        pattern: Regexp(\l            ^[0-9_]+$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    10 [label="Node {\l    identity: RegEx {\l        name: \"slatesNcategories\",\l        pattern: Regexp(\l            ^(SLATES|CATGORIES)$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    11 [label="Node {\l    identity: RegEx {\l        name: \"lower_num_dot_dash_under\",\l        pattern: Regexp(\l            ^[a-z0-9._-]$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    12 [label="Node {\l    identity: Simple(\l        \"LOCATIONS\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    13 [label="Node {\l    identity: RegEx {\l        name: \"lower_num_dot_dash_under\",\l        pattern: Regexp(\l            ^[a-z0-9._-]$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    14 [label="Node {\l    identity: RegEx {\l        name: \"lower_num_dot_dash_under\",\l        pattern: Regexp(\l            ^[a-z0-9._-]$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    15 [label="Node {\l    identity: Simple(\l        \"documents\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    16 [label="Node {\l    identity: RegEx {\l        name: \"doc_sd\",\l        pattern: Regexp(\l            ^(agency|director_treatments|vfx_methodology|schedules|scripts|storyboards)$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    17 [label="Node {\l    identity: Simple(\l        \"audio\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    18 [label="Node {\l    identity: RegEx {\l        name: \"audio_sd\",\l        pattern: Regexp(\l            ^(mixes|sources)$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    19 [label="Node {\l    identity: RegEx {\l        name: \"threed\",\l        pattern: Regexp(\l            ^3d$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    20 [label="Node {\l    identity: RegEx {\l        name: \"threed_sd\",\l        pattern: Regexp(\l            ^(3d_assets|mocap)$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    21 [label="Node {\l    identity: Simple(\l        \"CHARACTERS\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    22 [label="Node {\l    identity: RegEx {\l        name: \"chars_sd\",\l        pattern: Regexp(\l            ^[a-z0-9_]+$,\l        ),\l        exclude: Some(\l            Regexp(\l                ^(DEVL|SHARED|etc|lib|bin|user)$,\l            ),\l        ),\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    23 [label="Node {\l    identity: Simple(\l        \"tools\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: Some(\l            Named(\l                \"jobsys\",\l            ),\l        ),\l        group: None,\l        perms: Some(\l            \"0751\",\l        ),\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    24 [label="Node {\l    identity: Simple(\l        \"logs\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: Some(\l            \"0771\",\l        ),\l        varname: None,\l        autocreate: true,\l        navalias: None,\l    },\l}\l"]
-    25 [label="Node {\l    identity: Simple(\l        \"package\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    26 [label="Node {\l    identity: Simple(\l        \"extension\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    27 [label="Node {\l    identity: Simple(\l        \"bin\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    28 [label="Node {\l    identity: Simple(\l        \"etc\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: Some(\l            Named(\l                \"jobsys\",\l            ),\l        ),\l        group: None,\l        perms: Some(\l            \"0751\",\l        ),\l        varname: None,\l        autocreate: true,\l        navalias: Some(\l            Simple(\l                \"etc\",\l            ),\l        ),\l    },\l}\l"]
-    29 [label="Node {\l    identity: Simple(\l        \"lib\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: Some(\l            Named(\l                \"jobsys\",\l            ),\l        ),\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: true,\l        navalias: None,\l    },\l}\l"]
-    30 [label="Node {\l    identity: RegEx {\l        name: \"libsd_re\",\l        pattern: Regexp(\l            ^(config|cortex|dmx|houdini|integ|jspools|katana|lw|massive|max|maya|mentalray|mkfoldy|moco|mova|nfb|nuke|perl|python[0-9.]*|race|refchef|rman|scratch|setupenv|shader|shoot2x|submission|vray|wam|web)$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: Some(\l            \"0771\",\l        ),\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    31 [label="Node {\l    identity: Simple(\l        \"prod\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: Some(\l            \"755\",\l        ),\l        varname: None,\l        autocreate: true,\l        navalias: None,\l    },\l}\l"]
-    32 [label="Node {\l    identity: Simple(\l        \"docs\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: Some(\l            \"771\",\l        ),\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    33 [label="Node {\l    identity: Simple(\l        \"user\",\l    ),\l    entry_type: Volume,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: Some(\l            \"751\",\l        ),\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    34 [label="Node {\l    identity: RegEx {\l        name: \"work\",\l        pattern: Regexp(\l            ^work\.(?P<work>[a-z]+)$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: Some(\l            Captured(\l                \"work\",\l            ),\l        ),\l        group: None,\l        perms: Some(\l            \"770\",\l        ),\l        varname: Some(\l            \"DD_WORK\",\l        ),\l        autocreate: false,\l        navalias: Some(\l            Complex {\l                name: \"cs\",\l                value: \"work.$USER\",\l            },\l        ),\l    },\l}\l"]
-    35 [label="Node {\l    identity: Simple(\l        \"SHARED\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    36 [label="Node {\l    identity: RegEx {\l        name: \"depts\",\l        pattern: Regexp(\l            ^(PREVIZ|INTEG|MODEL|RIG|ANIM|CFX|LIGHT|ENVIRO|FX|COMP|IMG)$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    37 [label="Node {\l    identity: RegEx {\l        name: \"category\",\l        pattern: Regexp(\l            ^(char|prop|veh|scene|enviro|kit)$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: Some(\l            \"DD_CATEGORY\",\l        ),\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    38 [label="Node {\l    identity: RegEx {\l        name: \"department\",\l        pattern: Regexp(\l            ^(integ|model|previz|postviz|enviro|rig|anim|fx|cfx|light|comp|lookdev|shotmodel)$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    39 [label="Node {\l    identity: RegEx {\l        name: \"subcontext\",\l        pattern: Regexp(\l            ^[a-z]+([_]{0,1}[a-z0-9])*$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: Some(\l            \"DD_SUBCONTEXT\",\l        ),\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    40 [label="Node {\l    identity: RegEx {\l        name: \"snapshot_type\",\l        pattern: Regexp(\l            ^[a-z]+([_]{0,1}[a-z0-9])*$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    41 [label="Node {\l    identity: Simple(\l        \"ASSETDEV\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: Some(\l            \"DD_SEQUENCE\",\l        ),\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    42 [label="Node {\l    identity: RegEx {\l        name: \"adshot\",\l        pattern: Regexp(\l            ^([A-Z][A-Z0-9]+[_]{0,1})+[A-Z0-9]+$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: Some(\l            \"DD_SHOT\",\l        ),\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    43 [label="Node {\l    identity: RegEx {\l        name: \"client_dd_edit\",\l        pattern: Regexp(\l            ^(CLIENT|DD)$,\l        ),\l        exclude: None,\l    },\l    entry_type: Volume,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    44 [label="Node {\l    identity: RegEx {\l        name: \"client_dd_edit_sd\",\l        pattern: Regexp(\l            ^(([0-9]{4,5})|([0-9]{1,2}?[a-z]+)|([a-z]{2}[0-9]{4,5}))$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    45 [label="Node {\l    identity: Simple(\l        \"color\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    46 [label="Node {\l    identity: Simple(\l        \"OUTSOURCE\",\l    ),\l    entry_type: Volume,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    47 [label="Node {\l    identity: RegEx {\l        name: \"outsource_sd\",\l        pattern: Regexp(\l            ^[a-zA-Z0-9_.]$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    48 [label="Node {\l    identity: RegEx {\l        name: \"outsource_ssd\",\l        pattern: Regexp(\l            ^[a-zA-Z0-9_.]+$,\l        ),\l        exclude: Some(\l            Regexp(\l                ^(\bprod\b)$,\l            ),\l        ),\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: Some(\l            \"770\",\l        ),\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    49 [label="Node {\l    identity: Simple(\l        \"FINALS\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: Some(\l            \"750\",\l        ),\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    50 [label="Node {\l    identity: RegEx {\l        name: \"finals_sd\",\l        pattern: Regexp(\l            ^[0-9_]+$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    51 [label="Node {\l    identity: RegEx {\l        name: \"conform\",\l        pattern: Regexp(\l            ^CONFORM$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    52 [label="Node {\l    identity: RegEx {\l        name: \"conform_sd\",\l        pattern: Regexp(\l            ^[a-z0-9_]+$,\l        ),\l        exclude: Some(\l            Regexp(\l                ^(user|docs|prod)$,\l            ),\l        ),\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    53 [label="Node {\l    identity: Simple(\l        \"ARTDEPT\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    54 [label="Node {\l    identity: RegEx {\l        name: \"artdept_sd\",\l        pattern: Regexp(\l            ^[a-zA-Z0-9_.-]+$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: Some(\l            \"770\",\l        ),\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    55 [label="Node {\l    identity: Simple(\l        \"STORYBOARD\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    56 [label="Node {\l    identity: RegEx {\l        name: \"storyboard_sd\",\l        pattern: Regexp(\l            ^[0-9]{2}_[0-9]{4}$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: Some(\l            \"770\",\l        ),\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    57 [label="Node {\l    identity: Simple(\l        \"EDITORIAL\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    58 [label="Node {\l    identity: RegEx {\l        name: \"film_lens\",\l        pattern: Regexp(\l            ^(FILM|LENS)$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    59 [label="Node {\l    identity: Simple(\l        \"DAILIES\",\l    ),\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: None,\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    60 [label="Node {\l    identity: RegEx {\l        name: \"sequence\",\l        pattern: Regexp(\l            ^(([A-Z]{2,4})|LIBRARY)$,\l        ),\l        exclude: Some(\l            Regexp(\l                ^(SHARED|REF|OUTSOURCE|LOCATIONS|DAILIES)$,\l            ),\l        ),\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: Some(\l            \"DD_SEQUENCE\",\l        ),\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    61 [label="Node {\l    identity: RegEx {\l        name: \"shot\",\l        pattern: Regexp(\l            ^[0-9]+[A-Z0-9]*$,\l        ),\l        exclude: None,\l    },\l    entry_type: Directory,\l    metadata: Metadata {\l        owner: None,\l        group: None,\l        perms: None,\l        varname: Some(\l            \"DD_SHOT\",\l        ),\l        autocreate: false,\l        navalias: None,\l    },\l}\l"]
-    0 -> 1
-    1 -> 2
-    2 -> 3
-    3 -> 60
-    60 -> 61
-    35 -> 36
-    36 -> 37
-    37 -> 38
-    38 -> 39
-    39 -> 40
-    33 -> 34
-    4 -> 7
-    7 -> 8
-    8 -> 9
-    4 -> 10
-    10 -> 11
-    4 -> 12
-    12 -> 13
-    13 -> 14
-    4 -> 15
-    15 -> 16
-    4 -> 17
-    17 -> 18
-    4 -> 19
-    19 -> 20
-    4 -> 21
-    21 -> 22
-    4 -> 5
-    5 -> 6
-    23 -> 25
-    23 -> 26
-    23 -> 27
-    23 -> 28
-    3 -> 23
-    3 -> 24
-    3 -> 28
-    3 -> 4
-    3 -> 28
-    3 -> 45
-    3 -> 33
-    3 -> 43
-    43 -> 44
-    3 -> 35
-    3 -> 29
-    29 -> 30
-    3 -> 31
-    3 -> 32
-    3 -> 46
-    46 -> 47
-    47 -> 48
-    3 -> 49
-    49 -> 50
-    3 -> 53
-    53 -> 54
-    3 -> 55
-    55 -> 56
-    3 -> 57
-    3 -> 58
-    3 -> 51
-    3 -> 41
-    41 -> 42
-    3 -> 59
-    3 -> 51
-    51 -> 33
-    51 -> 35
-    51 -> 52
-    51 -> 32
-    51 -> 31
-    60 -> 28
-    60 -> 23
-    60 -> 33
-    60 -> 35
-    60 -> 29
-    60 -> 31
-    61 -> 23
-    61 -> 28
-    61 -> 35
-    61 -> 33
-    61 -> 29
-    61 -> 31
-    61 -> 23
-    42 -> 28
-    42 -> 35
-    42 -> 33
-    42 -> 31
-}
+digraph{
+    
+    0 [label="Root"]
+    1 [label="DD"]
+    2 [label="shows"]
+    3 [label="show"]
+    4 [label="REF"]
+    5 [label="quicktimes"]
+    6 [label="num_n_under"]
+    7 [label="CLIENT_VAULT"]
+    8 [label="clientvault_subdir"]
+    9 [label="clientvault_ssd"]
+    10 [label="slatesNcategories"]
+    11 [label="lower_num_dot_dash_under"]
+    12 [label="LOCATIONS"]
+    13 [label="lower_num_dot_dash_under"]
+    14 [label="lower_num_dot_dash_under"]
+    15 [label="documents"]
+    16 [label="doc_sd"]
+    17 [label="audio"]
+    18 [label="audio_sd"]
+    19 [label="threed"]
+    20 [label="threed_sd"]
+    21 [label="CHARACTERS"]
+    22 [label="chars_sd"]
+    23 [label="tools"]
+    24 [label="logs"]
+    25 [label="package"]
+    26 [label="extension"]
+    27 [label="bin"]
+    28 [label="etc"]
+    29 [label="lib"]
+    30 [label="libsd_re"]
+    31 [label="prod"]
+    32 [label="docs"]
+    33 [label="user"]
+    34 [label="work"]
+    35 [label="SHARED"]
+    36 [label="depts"]
+    37 [label="category"]
+    38 [label="department"]
+    39 [label="subcontext"]
+    40 [label="snapshot_type"]
+    41 [label="ASSETDEV"]
+    42 [label="adshot"]
+    43 [label="client_dd_edit"]
+    44 [label="client_dd_edit_sd"]
+    45 [label="color"]
+    46 [label="OUTSOURCE"]
+    47 [label="outsource_sd"]
+    48 [label="outsource_ssd"]
+    49 [label="FINALS"]
+    50 [label="finals_sd"]
+    51 [label="conform"]
+    52 [label="conform_sd"]
+    53 [label="ARTDEPT"]
+    54 [label="artdept_sd"]
+    55 [label="STORYBOARD"]
+    56 [label="storyboard_sd"]
+    57 [label="EDITORIAL"]
+    58 [label="film_lens"]
+    59 [label="DAILIES"]
+    60 [label="sequence"]
+    61 [label="shot"]
+    0->1
+    1->2
+    2->3
+    3->60
+    60->61
+    35->36
+    36->37
+    37->38
+    38->39
+    39->40
+    33->34
+    4->7
+    7->8
+    8->9
+    4->10
+    10->11
+    4->12
+    12->13
+    13->14
+    4->15
+    15->16
+    4->17
+    17->18
+    4->19
+    19->20
+    4->21
+    21->22
+    4->5
+    5->6
+    23->25
+    23->26
+    23->27
+    23->28
+    3->23
+    3->24
+    3->28
+    3->4
+    3->28
+    3->45
+    3->33
+    3->43
+    43->44
+    3->35
+    3->29
+    29->30
+    3->31
+    3->32
+    3->46
+    46->47
+    47->48
+    3->49
+    49->50
+    3->53
+    53->54
+    3->55
+    55->56
+    3->57
+    3->58
+    3->51
+    3->41
+    41->42
+    3->59
+    51->33
+    51->35
+    51->52
+    51->32
+    51->31
+    60->28
+    60->23
+    60->33
+    60->35
+    60->29
+    60->31
+    61->23
+    61->28
+    61->35
+    61->33
+    61->29
+    61->31
+    61->23
+    42->28
+    42->35
+    42->33
+    42->31
+} 

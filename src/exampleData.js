@@ -151,3 +151,15 @@ export default function example() {
     }  
   `;
 }
+export function minimal() {
+  return `
+  digraph{
+    
+    0 [label="Root"]
+    1 [label="DD"]
+    
+    0->1
+    
+    }  
+  `;
+}

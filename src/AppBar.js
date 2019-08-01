@@ -1,7 +1,16 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, IconButton, Toolbar, Typography } from "@material-ui/core";
-
+import {
+  AppBar,
+  IconButton,
+  Toolbar,
+  Typography,
+  Button
+} from "@material-ui/core";
+import AddIcon from "@material-ui/icons/AddCircle";
+import clsx from "clsx";
+import ReactFileReader from "react-file-reader";
+import Logo from "./Logo";
 import "typeface-roboto";
 
 const useStyles = makeStyles(theme => ({
@@ -10,15 +19,37 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     marginRight: theme.spacing(2)
+  },
+  title: {
+    flexGrow: 1
+  },
+  main: {
+    backgroundColor: "black"
+  },
+  logo: {
+    fill: "white"
+  },
+  button: {
+    margin: theme.spacing(1),
+    marginRight: theme.spacing(1)
+  },
+  leftIcon: {
+    marginRight: "5px"
+  },
+  rightIcon: {
+    marginLeft: "10px"
+  },
+  iconSmall: {
+    fontSize: 20
   }
 }));
 
-export default function DenseAppBar() {
+export default function DenseAppBar(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.main}>
         <Toolbar variant="dense">
           <IconButton
             edge="start"
@@ -26,11 +57,30 @@ export default function DenseAppBar() {
             color="inherit"
             aria-label="menu"
           >
-            {/* <MenuIcon /> */}
+            <Logo
+              viewBox="0 0 300 300"
+              height="20px"
+              width="20px"
+              color="inherit"
+              className={classes.logo}
+            />
           </IconButton>
-          <Typography variant="h6" color="inherit">
-            JSP Template
+
+          <Typography variant="h6" color="inherit" className={classes.title}>
+            {props.name}
           </Typography>
+          <ReactFileReader handleFiles={props.handle} fileTypes=".dot">
+            <Button
+              color="inherit"
+              backgroundColor="inherit"
+              className={classes.button}
+            >
+              <AddIcon
+                className={clsx(classes.leftIcon, classes.iconSmall)}
+              ></AddIcon>
+              Load Dot
+            </Button>
+          </ReactFileReader>
         </Toolbar>
       </AppBar>
     </div>

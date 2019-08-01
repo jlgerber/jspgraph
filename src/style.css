@@ -11,6 +11,9 @@ body {
   height: 100%;
 }
 
+.background {
+  background-color: lightgrey;
+}
 .app-root {
   height: 100%;
   display: flex;
@@ -30,10 +33,6 @@ ellipse {
 .footer {
   background-color: rgb(70, 70, 70);
   flex-grow: 20000;
-}
-
-.graphviz {
-  background-color: blue;
 }
 
 .canvas-frame {
