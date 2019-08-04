@@ -41,6 +41,9 @@ const useStyles = makeStyles(theme => ({
   },
   iconSmall: {
     fontSize: 20
+  },
+  selected: {
+    marginLeft: "60px"
   }
 }));
 
@@ -67,14 +70,14 @@ export default function DenseAppBar(props) {
           </IconButton>
 
           <Typography variant="h6" color="inherit" className={classes.title}>
-            {props.name}
+            {/* Weird refresh bug if we do this...
+            <span>{props.name}</span>
+            <span className={classes.selected}>{props.selected}</span> */}
+            <span>{props.name}</span>
+            <span style={{ marginLeft: "20px" }}>{props.selected}</span>
           </Typography>
           <ReactFileReader handleFiles={props.handle} fileTypes=".dot">
-            <Button
-              color="inherit"
-              backgroundColor="inherit"
-              className={classes.button}
-            >
+            <Button color="inherit" className={classes.button}>
               <AddIcon
                 className={clsx(classes.leftIcon, classes.iconSmall)}
               ></AddIcon>

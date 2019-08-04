@@ -30,6 +30,10 @@ ellipse {
   fill: white;
 }
 
+.selected {
+  fill: orange;
+}
+
 .footer {
   background-color: rgb(70, 70, 70);
   flex-grow: 20000;
