@@ -48,3 +48,26 @@ ellipse {
   padding-top: 30px;
   background-color: rgb(70, 70, 70);
 }
+
+svg {
+  cursor: move;
+}
+text {
+  font-weight: 300;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* For the Graph*/
+.node rect {
+  stroke: #333;
+  fill: #fff;
+  stroke-width: 1px;
+  cursor: pointer;
+}
+
+.edgePath path {
+  stroke: #333;
+  stroke-width: 1.5px;
+}

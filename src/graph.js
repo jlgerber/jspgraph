@@ -1,12 +1,27 @@
 import DagreD3 from "./DagreD3";
 import React, { Component } from "react";
+//import { notStrictEqual } from "assert";
+//import graphs from "./graphs";
 import graphs from "./graphs";
 
 export default class MyGraph extends Component {
   constructor(props) {
     super(props);
     this.onNodeClick = this.onNodeClick.bind(this);
+    const { nodes, edges } = MyGraph.extractNodesEdgesFromGraph(
+      this.props.graph
+    );
+    this.state = {
+      nodes: nodes,
+      edges: edges
+    };
   }
+
+  static extractNodesEdgesFromGraph = graph => {
+    //let obj = { nodes: [], edges: [] };
+
+    return graphs.simple2;
+  };
 
   onNodeClick(id) {
     console.log(`${id} clicked`);
@@ -25,16 +40,15 @@ export default class MyGraph extends Component {
   }
 
   render() {
-    //let w = window.innerWidth;
-    //let h = window.innerHeight;
+    const { nodes, edges } = this.state;
     return (
       <DagreD3
         interactive={true}
-        nodes={graphs.simple2.nodes}
-        edges={graphs.simple2.edges}
+        nodes={nodes}
+        edges={edges}
         //width={w}
         //height={h}
-        onNodeClick={this.onNodeClick}
+        onNodeClick={this.props.select}
         nodeBgColor="#fff"
         selectNodeBgColor="#fc3"
       />

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 //import { Graphviz } from "graphviz-react";
-import { Graphviz } from "./GraphvizPlus";
+//import { Graphviz } from "./GraphvizPlus";
+import MyGraph from "./graph";
 
 export default class GraphVizer extends Component {
   constructor(props) {
     super(props);
   }
-
 
   render() {
     return (
@@ -19,9 +19,10 @@ export default class GraphVizer extends Component {
             height: "800px"
           }}
         >
-          <Graphviz
-            dot={this.props.dotgraph}
-            options={this.props.settings}
+          <MyGraph
+            // <Graphviz
+            graph={this.props.dotgraph}
+            //options={this.props.settings}
             select={this.props.onSelect}
           />
         </div>
