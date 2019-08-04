@@ -76,12 +76,12 @@ export default function DenseAppBar(props) {
             <span>{props.name}</span>
             <span style={{ marginLeft: "20px" }}>{props.selected}</span>
           </Typography>
-          <ReactFileReader handleFiles={props.handle} fileTypes=".dot">
+          <ReactFileReader handleFiles={props.handle} fileTypes=".json">
             <Button color="inherit" className={classes.button}>
               <AddIcon
                 className={clsx(classes.leftIcon, classes.iconSmall)}
               ></AddIcon>
-              Load Dot
+              Load Template
             </Button>
           </ReactFileReader>
         </Toolbar>
