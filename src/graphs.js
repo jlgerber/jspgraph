@@ -54,18 +54,18 @@ let graphs = {
   },
   large: {
     nodes: {
-      "1": {},
-      "2": {},
-      "3": {},
-      "4": {},
-      "5": {},
-      "6": {},
-      "7": {},
-      "8": {},
-      "9": {},
-      "10": {},
-      "11": {},
-      "12": {}
+      "1": { label: "one" },
+      "2": { label: "two" },
+      "3": { label: "three" },
+      "4": { label: "four" },
+      "5": { label: "five" },
+      "6": { label: "six" },
+      "7": { label: "seven" },
+      "8": { label: "eight" },
+      "9": { label: "nine" },
+      "10": { label: "10" },
+      "11": { label: "eleven" },
+      "12": { label: "twelve" }
     },
     edges: [
       ["1", "2", {}],

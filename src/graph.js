@@ -20,7 +20,7 @@ export default class MyGraph extends Component {
   static extractNodesEdgesFromGraph = graph => {
     //let obj = { nodes: [], edges: [] };
 
-    return graphs.simple2;
+    return graphs.large;
   };
 
   onNodeClick(id) {
