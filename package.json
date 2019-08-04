@@ -1,7 +1,7 @@
 {
-  "name": "complete-intro-to-react-v5",
+  "name": "jspgraph",
   "version": "1.0.0",
-  "description": "the Complete Intro to React, v5",
+  "description": "a graph for jobsystem police",
   "main": "src/App.js",
   "dependencies": {
     "@frontendmasters/pet": "^1.0.3",
@@ -10,14 +10,16 @@
     "@mdi/font": "^3.8.95",
     "@reach/router": "^1.2.1",
     "graphviz-react": "^1.0.4",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-file-reader": "^1.1.4",
-    "typeface-roboto": "0.0.75"
+    "typeface-roboto": "0.0.75",
+    "graphs": "^2.0.0",
+    "dagre-d3": "^0.6.3",
+    "prop-types": "^15.6.2",
+    "react-fast-compare": "^2.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
@@ -28,9 +30,11 @@
     "eslint-plugin-jsx-a11y": "^6.2.0",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.0.2",
-    "parcel-bundler": "^1.12.1",
-    "prettier": "^1.16.1",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "1.18.2"
   },
   "scripts": {
     "clear-build-cache": "rm -rf .cache/ dist/",
