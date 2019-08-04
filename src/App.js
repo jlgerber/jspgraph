@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { minimal } from "./exampleData";
+//import { minimal } from "./exampleData";
 import DenseAppBar from "./AppBar";
 import GraphVizer from "./GraphVizer";
 
 const App = () => {
-  const [dotfileContents, setDotfileContents] = useState(minimal());
+  const [dotfileContents, setDotfileContents] = useState(null);
   const [selected, setSelected] = useState("");
 
   // eslint-disable-next-line no-unused-vars
@@ -16,7 +16,7 @@ const App = () => {
     setDotfile(file.name);
     var reader = new FileReader();
     reader.onload = function() {
-      var text = reader.result;
+      var text = JSON.parse(reader.result);
       setDotfileContents(text);
     };
     reader.readAsText(file);

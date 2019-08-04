@@ -3,24 +3,38 @@ import React, { Component } from "react";
 //import { notStrictEqual } from "assert";
 //import graphs from "./graphs";
 import graphs from "./graphs";
+// eslint-disable-next-line import/no-unresolved
+import { buildNodes, buildEdges } from "./ProcessTemplate";
 
 export default class MyGraph extends Component {
   constructor(props) {
     super(props);
     this.onNodeClick = this.onNodeClick.bind(this);
-    const { nodes, edges } = MyGraph.extractNodesEdgesFromGraph(
-      this.props.graph
-    );
+    const { nodes, edges } = this.props.graph
+      ? MyGraph.extractNodesEdgesFromGraph(this.props.graph)
+      : (function() {
+          return { nodes: {}, edges: [] };
+        })();
     this.state = {
       nodes: nodes,
       edges: edges
     };
   }
-
-  static extractNodesEdgesFromGraph = graph => {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.graph !== this.props.graph) {
+      const { nodes, edges } = MyGraph.extractNodesEdgesFromGraph(
+        nextProps.graph
+      );
+      this.setState({ nodes, edges });
+    }
+  }
+  static extractNodesEdgesFromGraph = jsongraph => {
     //let obj = { nodes: [], edges: [] };
-
-    return graphs.large;
+    //console.log("jsongraph", jsongraph);
+    let nodes = buildNodes(jsongraph.nodes);
+    let edges = buildEdges(jsongraph.nodes, jsongraph.edges);
+    let graph = { nodes: nodes, edges: edges };
+    return graph;
   };
 
   onNodeClick(id) {

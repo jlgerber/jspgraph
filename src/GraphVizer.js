@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-//import { Graphviz } from "graphviz-react";
-//import { Graphviz } from "./GraphvizPlus";
 import MyGraph from "./graph";
 
 export default class GraphVizer extends Component {
@@ -9,6 +7,7 @@ export default class GraphVizer extends Component {
   }
 
   render() {
+    console.log("graph", this.props.dotgraph);
     return (
       <div className="canvas-frame">
         <div
@@ -19,12 +18,7 @@ export default class GraphVizer extends Component {
             height: "800px"
           }}
         >
-          <MyGraph
-            // <Graphviz
-            graph={this.props.dotgraph}
-            //options={this.props.settings}
-            select={this.props.onSelect}
-          />
+          <MyGraph graph={this.props.dotgraph} select={this.props.onSelect} />
         </div>
       </div>
     );

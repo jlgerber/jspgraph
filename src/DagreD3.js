@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import * as dagreD3 from "dagre-d3";
+import dagre from "dagre";
 import * as d3 from "d3";
 
 import isEqual from "react-fast-compare";
@@ -83,7 +84,8 @@ class DagreD3 extends React.Component {
 
   renderDag(initial) {
     let g = new dagreD3.graphlib.Graph().setGraph({});
-
+    g.graph().nodeSep = 10;
+    g.graph().rankSep = 60;
     for (let [id, node] of Object.entries(this.props.nodes))
       g.setNode(id, node);
 
@@ -97,16 +99,6 @@ class DagreD3 extends React.Component {
     if (this.props.interactive) {
       let zoom = d3.zoom().on("zoom", () => {
         inner.attr("transform", d3.event.transform);
-        //} else {
-        // let { height: gHeight, width: gWidth } = g.graph();
-        // let transX = this.props.width / 2.0 - gWidth + d3.event.transform.x;
-        // let transY = this.props.height / 2.0 - gHeight + d3.event.transform.y;
-        // let trans = d3.event.transform;
-        // trans.x = transX;
-        // trans.y = transY;
-        // //inner.attr("transform", d3.zoomIdentity.translate(transX, transY));
-        // inner.attr("transform", trans);
-        //}
       });
 
       svg.call(zoom);
@@ -126,6 +118,11 @@ class DagreD3 extends React.Component {
         node.rx = node.ry = 5;
       });
     }
+
+    g.edges().forEach(function(v) {
+      let edge = g.edge(v);
+      edge.curve = d3.curveBasis;
+    });
     // Run the renderer. This is what draws the final graph.
     render(inner, g);
     // TODO add padding?
