@@ -10,9 +10,9 @@ class JspGraph extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.graph !== this.props.graph) {
+    if (nextProps.jspgraph !== this.props.jspgraph) {
       const { nodes, edges } = JspGraph.extractNodesEdgesFromGraph(
-        nextProps.graph
+        nextProps.jspgraph
       );
       const { setNodes, setEdges } = this.context;
       setNodes(nodes);
@@ -41,6 +41,16 @@ class JspGraph extends Component {
 
   render() {
     return (
+      // <div className="canvas-frame">
+      //   <div
+      //     style={{
+      //       gridColumn: "1/2",
+      //       backgroundColor: "lightgrey",
+      //       width: "1400px",
+      //       height: "800px",
+      //       overflow: "hidden"
+      //     }}
+      //   >
       <AppContext.Consumer>
         {context => (
           <DagreD3
@@ -49,12 +59,14 @@ class JspGraph extends Component {
             edges={context.edges}
             //width={w}
             //height={h}
-            onNodeClick={this.props.select}
+            onNodeClick={this.props.onSelect}
             nodeBgColor="#fff"
-            selectNodeBgColor="#fc3"
+            selectNodeBgColor="#90fdf3" //"#fc3"
           />
         )}
       </AppContext.Consumer>
+      //   </div>
+      // </div>
     );
   }
 }

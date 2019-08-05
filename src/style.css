@@ -80,6 +80,7 @@ text {
   background-color: white;
   padding: 40px;
   z-index: 1010;
+  border-radius: 5px;
 }
 
 .modal-overlay {

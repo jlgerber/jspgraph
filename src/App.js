@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import ReactDOM from "react-dom";
 import DenseAppBar from "./AppBar";
-import GraphVizer from "./GraphVizer";
+//import GraphVizer from "./GraphVizer";
+import JspGraph from "./JspGraph";
 import Modal from "./Modal";
 import AppContext from "./AppContext";
 // eslint-disable-next-line import/no-unresolved
@@ -83,8 +84,8 @@ const App = () => {
           selected={getSelected()}
           handle={handle}
         />
-        <GraphVizer
-          dotgraph={jspFileContents}
+        <JspGraph
+          jspgraph={jspFileContents}
           onSelect={setSelectedCb}
           settings={{
             fit: true,
@@ -96,7 +97,8 @@ const App = () => {
         <div className="footer"></div>
         {showModal ? (
           <Modal>
-            <div>
+            {/* <div> */}
+            <Fragment>
               {(() => {
                 const data = getData(nodes[selected]);
                 return (
@@ -193,7 +195,8 @@ const App = () => {
               >
                 Done
               </Button>
-            </div>
+            </Fragment>
+            {/* </div> */}
           </Modal>
         ) : null}
       </AppContext.Provider>
