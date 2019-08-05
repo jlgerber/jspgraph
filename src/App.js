@@ -34,21 +34,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const App = () => {
-  const [dotfileContents, setDotfileContents] = useState(null);
+  const [jspFileContents, setJspFileContents] = useState(null);
   const [selected, setSelected] = useState("");
   // eslint-disable-next-line no-unused-vars
-  const [dotfile, setDotfile] = useState("");
+  const [jspfile, setJspfile] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [nodes, setNodes] = useState({});
   const [edges, setEdges] = useState([]);
 
   const handle = files => {
     const file = files[0];
-    setDotfile(file.name);
+    setJspfile(file.name);
     var reader = new FileReader();
     reader.onload = function() {
       var text = JSON.parse(reader.result);
-      setDotfileContents(text);
+      setJspFileContents(text);
     };
     reader.readAsText(file);
   };
@@ -84,7 +84,7 @@ const App = () => {
           handle={handle}
         />
         <GraphVizer
-          dotgraph={dotfileContents}
+          dotgraph={jspFileContents}
           onSelect={setSelectedCb}
           settings={{
             fit: true,
