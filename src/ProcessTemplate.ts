@@ -111,7 +111,7 @@ export const buildNodes = (nodes: Array<ObjType>): NodeObj => {
   var nobj = {};
   for (const node of nodes) {
     let nm = getNameObj(node);
-    nobj[nm.label] = nm;
+    nobj[nm.label] = node;
   }
   return nobj;
 };

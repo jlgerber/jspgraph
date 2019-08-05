@@ -1,13 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import * as dagreD3 from "dagre-d3";
-import dagre from "dagre";
 import * as d3 from "d3";
 
 import isEqual from "react-fast-compare";
 
+// eslint-disable-next-line no-unused-vars
 const defaultOnNodeClick = id => {};
+// eslint-disable-next-line no-unused-vars
 const defaultOnMouseOver = id => {};
+// eslint-disable-next-line no-unused-vars
 const defaultOnMouseOut = id => {};
 
 class DagreD3 extends React.Component {
@@ -58,7 +60,7 @@ class DagreD3 extends React.Component {
     fn(id);
   };
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     return (
       !isEqual(this.props.nodes, nextProps.nodes) ||
       !isEqual(this.props.edges, nextProps.edges) ||
@@ -82,7 +84,7 @@ class DagreD3 extends React.Component {
     window.removeEventListener("resize", this.resize);
   }
 
-  renderDag(initial) {
+  renderDag() {
     let g = new dagreD3.graphlib.Graph().setGraph({});
     g.graph().nodeSep = 10;
     g.graph().rankSep = 60;
