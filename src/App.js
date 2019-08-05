@@ -117,7 +117,6 @@ const App = () => {
                       }}
                       variant="outlined"
                     />
-                    {/* <h2>NAME: {data.name}</h2> */}
                     <TextField
                       id="outlined-read-only-input"
                       label="Type"
@@ -130,7 +129,6 @@ const App = () => {
                       }}
                       variant="outlined"
                     />
-                    {/* <h2>TYPE: {data.type}</h2> */}
                     <TextField
                       id="outlined-read-only-input"
                       label="Entry Type"
@@ -143,7 +141,6 @@ const App = () => {
                       }}
                       variant="outlined"
                     />
-                    {/* <h2>ENTRY TYPE: {data.entryType}</h2> */}
                     {data.value === null ? null : (
                       <TextField
                         id="outlined-read-only-input"
@@ -157,7 +154,6 @@ const App = () => {
                         }}
                         variant="outlined"
                       />
-                      // <h3>PATTERN: {data.value.pattern}</h3>
                     )}
                     {data.value !== null && data.value.hasExclude ? (
                       <TextField
@@ -172,8 +168,7 @@ const App = () => {
                         }}
                         variant="outlined"
                       />
-                    ) : // <h3>EXCLUDE: {data.value.exclude}</h3>
-                    null}
+                    ) : null}
                     <TextField
                       id="outlined-read-only-input"
                       label="Metadata"
@@ -186,7 +181,6 @@ const App = () => {
                       }}
                       variant="outlined"
                     />
-                    {/* <h3>METADATA: {data.metadata}</h3> */}
                   </form>
                 );
               })()}
