@@ -1,12 +1,37 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-//import { minimal } from "./exampleData";
 import DenseAppBar from "./AppBar";
 import GraphVizer from "./GraphVizer";
 import Modal from "./Modal";
 import AppContext from "./AppContext";
 // eslint-disable-next-line import/no-unresolved
 import { getData } from "./ProcessTemplate";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+
+const useStyles = makeStyles(theme => ({
+  container: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1)
+  },
+  dense: {
+    marginTop: theme.spacing(2)
+  },
+  menu: {
+    width: 200
+  },
+  button: {
+    margin: theme.spacing(1)
+  },
+  input: {
+    display: "none"
+  }
+}));
 
 const App = () => {
   const [dotfileContents, setDotfileContents] = useState(null);
@@ -48,6 +73,8 @@ const App = () => {
     }
   };
 
+  const classes = useStyles();
+
   return (
     <div className="app-root">
       <AppContext.Provider value={{ nodes, edges, setEdges, setNodes }}>
@@ -73,22 +100,105 @@ const App = () => {
               {(() => {
                 const data = getData(nodes[selected]);
                 return (
-                  <div>
-                    <h2>NAME: {data.name}</h2>
-                    <h2>TYPE: {data.type}</h2>
-                    <h2>ENTRY TYPE: {data.entryType}</h2>
+                  <form
+                    className={classes.container}
+                    noValidate
+                    autoComplete="off"
+                  >
+                    <TextField
+                      id="outlined-read-only-input"
+                      label="Name"
+                      defaultValue={data.name}
+                      className={classes.textField}
+                      margin="normal"
+                      fullWidth
+                      InputProps={{
+                        readOnly: true
+                      }}
+                      variant="outlined"
+                    />
+                    {/* <h2>NAME: {data.name}</h2> */}
+                    <TextField
+                      id="outlined-read-only-input"
+                      label="Type"
+                      defaultValue={data.type}
+                      className={classes.textField}
+                      margin="normal"
+                      fullWidth
+                      InputProps={{
+                        readOnly: true
+                      }}
+                      variant="outlined"
+                    />
+                    {/* <h2>TYPE: {data.type}</h2> */}
+                    <TextField
+                      id="outlined-read-only-input"
+                      label="Entry Type"
+                      defaultValue={data.entryType}
+                      className={classes.textField}
+                      margin="normal"
+                      fullWidth
+                      InputProps={{
+                        readOnly: true
+                      }}
+                      variant="outlined"
+                    />
+                    {/* <h2>ENTRY TYPE: {data.entryType}</h2> */}
                     {data.value === null ? null : (
-                      <h3>PATTERN: {data.value.pattern}</h3>
+                      <TextField
+                        id="outlined-read-only-input"
+                        label="Pattern"
+                        defaultValue={data.value.pattern}
+                        className={classes.textField}
+                        margin="normal"
+                        fullWidth
+                        InputProps={{
+                          readOnly: true
+                        }}
+                        variant="outlined"
+                      />
+                      // <h3>PATTERN: {data.value.pattern}</h3>
                     )}
                     {data.value !== null && data.value.hasExclude ? (
-                      <h3>EXCLUDE: {data.value.exclude}</h3>
-                    ) : null}
-                    <h3>METADATA: {data.metadata}</h3>
-                  </div>
+                      <TextField
+                        id="outlined-read-only-input"
+                        label="Exclude"
+                        defaultValue={data.value.exclude}
+                        className={classes.textField}
+                        margin="normal"
+                        fullWidth
+                        InputProps={{
+                          readOnly: true
+                        }}
+                        variant="outlined"
+                      />
+                    ) : // <h3>EXCLUDE: {data.value.exclude}</h3>
+                    null}
+                    <TextField
+                      id="outlined-read-only-input"
+                      label="Metadata"
+                      defaultValue={data.metadata}
+                      className={classes.textField}
+                      margin="normal"
+                      fullWidth
+                      InputProps={{
+                        readOnly: true
+                      }}
+                      variant="outlined"
+                    />
+                    {/* <h3>METADATA: {data.metadata}</h3> */}
+                  </form>
                 );
               })()}
 
-              <button onClick={toggleModal}>Done</button>
+              <Button
+                onClick={toggleModal}
+                variant="contained"
+                color="primary"
+                className={classes.button}
+              >
+                Done
+              </Button>
             </div>
           </Modal>
         ) : null}

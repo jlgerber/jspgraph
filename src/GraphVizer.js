@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import MyGraph from "./graph";
-import { Hidden } from "@material-ui/core";
+import JspGraph from "./JspGraph";
+//import { Hidden } from "@material-ui/core";
 
 export default class GraphVizer extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ export default class GraphVizer extends Component {
             overflow: "hidden"
           }}
         >
-          <MyGraph graph={this.props.dotgraph} select={this.props.onSelect} />
+          <JspGraph graph={this.props.dotgraph} select={this.props.onSelect} />
         </div>
       </div>
     );
