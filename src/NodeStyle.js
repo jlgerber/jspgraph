@@ -5,7 +5,9 @@ const nodeStyle = {
   selNodeEdgeColor: "red",
   edgeColor: "black",
   selEdgeColor: "red",
-  selIncomingEdgeColor: "red"
+  selIncomingEdgeColor: "red",
+  selStrokeWidth: "2px",
+  strokeWidth: "1px"
 };
 
 export default nodeStyle;

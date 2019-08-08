@@ -69,7 +69,7 @@ text {
 
 .edgePath path {
   stroke: #333;
-  stroke-width: 1.5px;
+  stroke-width: 1px;
 }
 
 .modal-main {

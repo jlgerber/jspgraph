@@ -33,27 +33,34 @@ class DagreD3 extends React.Component {
     onNodeClick: PropTypes.func,
     onMouseOver: PropTypes.func,
     onMouseOut: PropTypes.func,
-    // selectNodeBgColor: PropTypes.string.isRequired,
-    // nodeBgColor: PropTypes.string.isRequired,
     nodeStyle: PropTypes.object.isRequired
   };
 
-  styleNode = (svg, node_id, fillColor, edgeColor) => {
+  styleNode = (svg, node_id, fillColor, edgeColor, strokeWidth) => {
     const selNode = svg.selectAll(
       `.dagre-d3 .node-${node_id} > .label-container`
     );
-    selNode.style("fill", fillColor).style("stroke", edgeColor);
+    selNode
+      .style("fill", fillColor)
+      .style("stroke", edgeColor)
+      .style("stroke-width", strokeWidth);
   };
 
-  colorOutgoingEdges = (svg, node_id, color) => {
+  styleOutgoingEdges = (svg, node_id, color, strokeWidth) => {
     // the outgoing edge has an in-node-id class.
-    svg.selectAll(`.dagre-d3 .in-node-${node_id} *`).style("stroke", color);
+    svg
+      .selectAll(`.dagre-d3 .in-node-${node_id} *`)
+      .style("stroke", color)
+      .style("stroke-width", strokeWidth);
     svg.selectAll(`.dagre-d3 .in-node-${node_id} defs`).style("fill", color);
   };
 
-  colorIncommingEdges = (svg, node_id, color) => {
+  styleIncommingEdges = (svg, node_id, color, strokeWidth) => {
     // the incomming edge has an in-node-id class.
-    svg.selectAll(`.dagre-d3 .out-node-${node_id} *`).style("stroke", color);
+    svg
+      .selectAll(`.dagre-d3 .out-node-${node_id} *`)
+      .style("stroke", color)
+      .style("stroke-width", strokeWidth);
     svg.selectAll(`.dagre-d3 .out-node-${node_id} defs`).style("fill", color);
   };
 
@@ -68,12 +75,23 @@ class DagreD3 extends React.Component {
         svg,
         last_id,
         nodeStyle.nodeBgColor,
-        nodeStyle.nodeEdgeColor
+        nodeStyle.nodeEdgeColor,
+        "1px"
       );
       if (nodeStyle.selEdgeColor)
-        this.colorOutgoingEdges(svg, last_id, nodeStyle.edgeColor);
+        this.styleOutgoingEdges(
+          svg,
+          last_id,
+          nodeStyle.edgeColor,
+          nodeStyle.strokeWidth
+        );
       if (nodeStyle.selIncomingEdgeColor) {
-        this.colorIncommingEdges(svg, last_id, nodeStyle.edgeColor);
+        this.styleIncommingEdges(
+          svg,
+          last_id,
+          nodeStyle.edgeColor,
+          nodeStyle.strokeWidth
+        );
       }
     }
 
@@ -81,13 +99,24 @@ class DagreD3 extends React.Component {
       svg,
       id,
       nodeStyle.selNodeBgColor,
-      nodeStyle.selNodeEdgeColor
+      nodeStyle.selNodeEdgeColor,
+      nodeStyle.selStrokeWidth
     );
 
     if (nodeStyle.selEdgeColor)
-      this.colorOutgoingEdges(svg, id, nodeStyle.selEdgeColor);
+      this.styleOutgoingEdges(
+        svg,
+        id,
+        nodeStyle.selEdgeColor,
+        nodeStyle.selStrokeWidth
+      );
     if (nodeStyle.selIncomingEdgeColor) {
-      this.colorIncommingEdges(svg, id, nodeStyle.selIncomingEdgeColor);
+      this.styleIncommingEdges(
+        svg,
+        id,
+        nodeStyle.selIncomingEdgeColor,
+        nodeStyle.selStrokeWidth
+      );
     }
   };
 
@@ -218,19 +247,22 @@ class DagreD3 extends React.Component {
             svg,
             this.state.selection,
             nodeStyle.nodeBgColor,
-            nodeStyle.nodeEdgeColor
+            nodeStyle.nodeEdgeColor,
+            nodeStyle.strokeWidth
           );
           if (nodeStyle.selEdgeColor)
-            this.colorOutgoingEdges(
+            this.styleOutgoingEdges(
               svg,
               this.state.selection,
-              nodeStyle.edgeColor
+              nodeStyle.edgeColor,
+              nodeStyle.strokeWidth
             );
           if (nodeStyle.selIncomingEdgeColor) {
-            this.colorIncommingEdges(
+            this.styleIncommingEdges(
               svg,
               this.state.selection,
-              nodeStyle.edgeColor
+              nodeStyle.edgeColor,
+              nodeStyle.strokeWidth
             );
           }
         }
