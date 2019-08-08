@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as dagreD3 from "dagre-d3";
 import * as d3 from "d3";
-
 import isEqual from "react-fast-compare";
 
 // eslint-disable-next-line no-unused-vars
@@ -34,20 +33,62 @@ class DagreD3 extends React.Component {
     onNodeClick: PropTypes.func,
     onMouseOver: PropTypes.func,
     onMouseOut: PropTypes.func,
-    selectNodeBgColor: PropTypes.string.isRequired,
-    nodeBgColor: PropTypes.string.isRequired
+    // selectNodeBgColor: PropTypes.string.isRequired,
+    // nodeBgColor: PropTypes.string.isRequired,
+    nodeStyle: PropTypes.object.isRequired
   };
 
-  updateSelection = (g, id, fn) => {
+  styleNode = (svg, node_id, fillColor, edgeColor) => {
+    const selNode = svg.selectAll(
+      `.dagre-d3 .node-${node_id} > .label-container`
+    );
+    selNode.style("fill", fillColor).style("stroke", edgeColor);
+  };
+
+  colorOutgoingEdges = (svg, node_id, color) => {
+    // the outgoing edge has an in-node-id class.
+    svg.selectAll(`.dagre-d3 .in-node-${node_id} *`).style("stroke", color);
+    svg.selectAll(`.dagre-d3 .in-node-${node_id} defs`).style("fill", color);
+  };
+
+  colorIncommingEdges = (svg, node_id, color) => {
+    // the incomming edge has an in-node-id class.
+    svg.selectAll(`.dagre-d3 .out-node-${node_id} *`).style("stroke", color);
+    svg.selectAll(`.dagre-d3 .out-node-${node_id} defs`).style("fill", color);
+  };
+
+  updateSelection = (g, id, svg, fn) => {
+    const { nodeStyle } = this.props;
     this.setState({ priorSelection: this.state.selection, selection: id });
     fn(id);
-    if (this.state.priorSelection !== null)
-      g.node(
-        this.state.priorSelection
-      ).elem.childNodes[0].style = `fill: ${this.props.nodeBgColor}`;
-    g.node(
-      id
-    ).elem.childNodes[0].style = `fill: ${this.props.selectNodeBgColor};`;
+    if (this.state.priorSelection !== null) {
+      const last_id = this.state.priorSelection;
+
+      this.styleNode(
+        svg,
+        last_id,
+        nodeStyle.nodeBgColor,
+        nodeStyle.nodeEdgeColor
+      );
+      if (nodeStyle.selEdgeColor)
+        this.colorOutgoingEdges(svg, last_id, nodeStyle.edgeColor);
+      if (nodeStyle.selIncomingEdgeColor) {
+        this.colorIncommingEdges(svg, last_id, nodeStyle.edgeColor);
+      }
+    }
+
+    this.styleNode(
+      svg,
+      id,
+      nodeStyle.selNodeBgColor,
+      nodeStyle.selNodeEdgeColor
+    );
+
+    if (nodeStyle.selEdgeColor)
+      this.colorOutgoingEdges(svg, id, nodeStyle.selEdgeColor);
+    if (nodeStyle.selIncomingEdgeColor) {
+      this.colorIncommingEdges(svg, id, nodeStyle.selIncomingEdgeColor);
+    }
   };
 
   mouseIn = (id, fn) => {
@@ -88,10 +129,15 @@ class DagreD3 extends React.Component {
     let g = new dagreD3.graphlib.Graph().setGraph({});
     g.graph().nodeSep = 10;
     g.graph().rankSep = 60;
-    for (let [id, node] of Object.entries(this.props.nodes))
-      g.setNode(id, node);
+    // eslint-disable-next-line no-unused-vars
+    for (let [id, _node] of Object.entries(this.props.nodes)) {
+      g.setNode(id, { class: `node-${id}` });
+    }
 
-    for (let edge of this.props.edges) g.setEdge(edge[0], edge[1], edge[2]); // from, to, props
+    for (let edge of this.props.edges)
+      g.setEdge(edge[0], edge[1], {
+        class: `in-node-${edge[0]} out-node-${edge[1]}`
+      });
 
     // Set up an SVG group so that we can translate the final graph.
     let svg = d3.select(this.nodeTree);
@@ -146,11 +192,12 @@ class DagreD3 extends React.Component {
 
     svg
       .selectAll(".dagre-d3 .node")
-      .on("click", id =>
-        this.props.onNodeClick
-          ? this.updateSelection(g, id, this.props.onNodeClick)
-          : this.updateSelection(g, id, defaultOnNodeClick)
-      )
+      .on("click", id => {
+        if (d3.event.shiftKey && this.props.onNodeClick) {
+          this.updateSelection(g, id, svg, this.props.onNodeClick);
+        }
+        this.updateSelection(g, id, svg, defaultOnNodeClick);
+      })
       .on("mouseover", id =>
         this.props.onMouseOver
           ? this.mouseIn(id, this.props.onMouseOver)
@@ -165,10 +212,28 @@ class DagreD3 extends React.Component {
     // of the node. We use this to deregister the node
     svg.on("click", () => {
       if (!this.state.inNode) {
-        if (this.state.selection !== null)
-          g.node(
-            this.state.selection
-          ).elem.childNodes[0].style = `fill: ${this.props.nodeBgColor}`;
+        if (this.state.selection !== null) {
+          const { nodeStyle } = this.props;
+          this.styleNode(
+            svg,
+            this.state.selection,
+            nodeStyle.nodeBgColor,
+            nodeStyle.nodeEdgeColor
+          );
+          if (nodeStyle.selEdgeColor)
+            this.colorOutgoingEdges(
+              svg,
+              this.state.selection,
+              nodeStyle.edgeColor
+            );
+          if (nodeStyle.selIncomingEdgeColor) {
+            this.colorIncommingEdges(
+              svg,
+              this.state.selection,
+              nodeStyle.edgeColor
+            );
+          }
+        }
       }
     });
   }

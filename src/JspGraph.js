@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import AppContext from "./AppContext";
 // eslint-disable-next-line import/no-unresolved
 import { buildNodes, buildEdges } from "./ProcessTemplate";
+import nodeStyle from "./NodeStyle";
 
 class JspGraph extends Component {
   constructor(props) {
@@ -41,16 +42,6 @@ class JspGraph extends Component {
 
   render() {
     return (
-      // <div className="canvas-frame">
-      //   <div
-      //     style={{
-      //       gridColumn: "1/2",
-      //       backgroundColor: "lightgrey",
-      //       width: "1400px",
-      //       height: "800px",
-      //       overflow: "hidden"
-      //     }}
-      //   >
       <AppContext.Consumer>
         {context => (
           <DagreD3
@@ -60,13 +51,12 @@ class JspGraph extends Component {
             //width={w}
             //height={h}
             onNodeClick={this.props.onSelect}
-            nodeBgColor="#fff"
-            selectNodeBgColor="#90fdf3" //"#fc3"
+            //nodeBgColor="#fff"
+            //selectNodeBgColor="#90fdf3" //"#fc3"
+            nodeStyle={nodeStyle}
           />
         )}
       </AppContext.Consumer>
-      //   </div>
-      // </div>
     );
   }
 }
