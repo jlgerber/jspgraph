@@ -51,8 +51,6 @@ class JspGraph extends Component {
             //width={w}
             //height={h}
             onNodeClick={this.props.onSelect}
-            //nodeBgColor="#fff"
-            //selectNodeBgColor="#90fdf3" //"#fc3"
             nodeStyle={nodeStyle}
           />
         )}

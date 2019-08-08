@@ -1,7 +1,7 @@
 const nodeStyle = {
   nodeBgColor: "white",
   nodeEdgeColor: "black",
-  selNodeBgColor: "orange",
+  selNodeBgColor: "#ffcb6b",
   selNodeEdgeColor: "red",
   edgeColor: "black",
   selEdgeColor: "red",
