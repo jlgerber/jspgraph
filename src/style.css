@@ -51,7 +51,9 @@ ellipse {
 
 svg {
   cursor: move;
+  background-color: rgb(68, 68, 68);
 }
+
 text {
   font-weight: 300;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -61,15 +63,27 @@ text {
 
 /* For the Graph*/
 .node rect {
-  stroke: #333;
-  fill: #fff;
+  /* stroke: #333; */
+  stroke: white;
+  fill: #6c6c6c;
   stroke-width: 1px;
   cursor: pointer;
 }
+.node .label tspan {
+  stroke: rgb(238, 238, 238);
+}
 
 .edgePath path {
-  stroke: #333;
-  stroke-width: 1px;
+  /* stroke: #333; */
+  stroke: white;
+  stroke-width: 1.5px;
+}
+.MuiInput-underline::after {
+  border-bottom: 1px sold transparent;
+}
+.edgePath defs {
+  /* stroke: #333; */
+  fill: white;
 }
 
 .modal-main {
