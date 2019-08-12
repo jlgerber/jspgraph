@@ -35,10 +35,22 @@ ellipse {
 }
 
 .footer {
-  background-color: rgb(70, 70, 70);
+  background-color: #0082f0;
   flex-grow: 20000;
+  height: 40px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
+.footer span.label {
+  padding-left: 20px;
+}
+
+.footer span.value {
+  padding-left: 5px;
+}
 .canvas-frame {
   overflow: hidden;
   display: flex;
