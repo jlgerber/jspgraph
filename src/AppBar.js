@@ -11,6 +11,9 @@ import AddIcon from "@material-ui/icons/AddCircle";
 import clsx from "clsx";
 import ReactFileReader from "react-file-reader";
 import Logo from "./Logo";
+// eslint-disable-next-line import/no-unresolved
+import ProjectSelect from "./ProjectSelect";
+
 import "typeface-roboto";
 
 const useStyles = makeStyles(theme => ({
@@ -49,7 +52,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function DenseAppBar(props) {
   const classes = useStyles();
-
+  //console.log("projects", props.projects);
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.main}>
@@ -76,6 +79,12 @@ export default function DenseAppBar(props) {
             <span>{props.name}</span>
             {/* <span style={{ marginLeft: "20px" }}>{props.selected}</span> */}
           </Typography>
+
+          <ProjectSelect
+            projects={props.projects}
+            onProjectChange={props.onProjectChange}
+          />
+
           <ReactFileReader handleFiles={props.handle} fileTypes=".json">
             <Button color="inherit" className={classes.button}>
               <AddIcon
