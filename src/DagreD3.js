@@ -5,7 +5,7 @@ import * as d3 from "d3";
 import isEqual from "react-fast-compare";
 
 // eslint-disable-next-line no-unused-vars
-const defaultOnNodeClick = id => {};
+const defaultonNodeShiftClick = id => {};
 // eslint-disable-next-line no-unused-vars
 const defaultOnMouseOver = id => {};
 // eslint-disable-next-line no-unused-vars
@@ -30,7 +30,8 @@ class DagreD3 extends React.Component {
     height: PropTypes.number,
     width: PropTypes.number,
     shapeRenderers: PropTypes.objectOf(PropTypes.func),
-    onNodeClick: PropTypes.func,
+    onNodeShiftClick: PropTypes.func,
+    onNodeClick: PropTypes.func.isRequired,
     onMouseOver: PropTypes.func,
     onMouseOut: PropTypes.func,
     nodeStyle: PropTypes.object.isRequired
@@ -222,10 +223,12 @@ class DagreD3 extends React.Component {
     svg
       .selectAll(".dagre-d3 .node")
       .on("click", id => {
-        if (d3.event.shiftKey && this.props.onNodeClick) {
+        if (d3.event.shiftKey && this.props.onNodeShiftClick) {
+          this.updateSelection(g, id, svg, this.props.onNodeShiftClick);
+        } else {
           this.updateSelection(g, id, svg, this.props.onNodeClick);
         }
-        this.updateSelection(g, id, svg, defaultOnNodeClick);
+        //this.updateSelection(g, id, svg, defaultonNodeShiftClick);
       })
       .on("mouseover", id =>
         this.props.onMouseOver
