@@ -12,6 +12,7 @@ import Modal from "./Modal";
 // eslint-disable-next-line import/no-unresolved
 import { getData, buildNodes, buildEdges } from "./ProcessTemplate";
 import useFetch from "./UseFetch";
+import Footer from "./Footer";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -74,9 +75,13 @@ const App = () => {
     reader.readAsText(file);
   };
 
-  const setSelectedCb = selected => {
+  const setModalSelectedCb = selected => {
     setSelected(selected);
     toggleModal();
+  };
+
+  const onNodeClick = selected => {
+    setSelected(selected);
   };
 
   // eslint-disable-next-line no-unused-vars
@@ -133,7 +138,8 @@ const App = () => {
         />
         <JspGraph
           jspgraph={jspFileContents}
-          onSelect={setSelectedCb}
+          onModalSelect={setModalSelectedCb}
+          onNodeClick={onNodeClick}
           settings={{
             fit: true,
             height: 800,
@@ -141,7 +147,9 @@ const App = () => {
             zoom: true
           }}
         />
-        <div className="footer"></div>
+
+        <Footer selected={selected} />
+
         {showModal ? (
           <Modal>
             {/* <div> */}

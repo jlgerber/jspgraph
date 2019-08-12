@@ -50,7 +50,8 @@ class JspGraph extends Component {
             edges={context.edges}
             //width={w}
             //height={h}
-            onNodeClick={this.props.onSelect}
+            onNodeShiftClick={this.props.onModalSelect}
+            onNodeClick={this.props.onNodeClick}
             nodeStyle={nodeStyle}
           />
         )}
